@@ -152,6 +152,21 @@ const reactionRemove: FacebookRawEvent = {
   },
 };
 
+const reactionOnPost: FacebookRawEvent = {
+  field: 'feed',
+  value: {
+    reactionType: 'like',
+    from: {
+      id: '139560936744123',
+    },
+    parentId: '137542570280222_139560936744456',
+    postId: '137542570280222_139560936744456',
+    verb: 'add',
+    item: 'reaction',
+    createdTime: 1568176139,
+  },
+};
+
 const pageId = '137542570280111';
 
 const sentByPage: FacebookRawEvent = {
@@ -208,6 +223,7 @@ it('#isFeed', () => {
   expect(new FacebookEvent(reactionAdd).isFeed).toEqual(true);
   expect(new FacebookEvent(reactionEdit).isFeed).toEqual(true);
   expect(new FacebookEvent(reactionRemove).isFeed).toEqual(true);
+  expect(new FacebookEvent(reactionOnPost).isFeed).toEqual(true);
   expect(new FacebookEvent(sentByPage).isFeed).toEqual(true);
 });
 
@@ -222,6 +238,7 @@ it('#isStatus', () => {
   expect(new FacebookEvent(reactionAdd).isStatus).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isStatus).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isStatus).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isStatus).toEqual(false);
   expect(new FacebookEvent(sentByPage).isStatus).toEqual(false);
 });
 
@@ -236,6 +253,7 @@ it('#isStatusAdd', () => {
   expect(new FacebookEvent(reactionAdd).isStatusAdd).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isStatusAdd).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isStatusAdd).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isStatusAdd).toEqual(false);
   expect(new FacebookEvent(sentByPage).isStatusAdd).toEqual(false);
 });
 
@@ -250,6 +268,7 @@ it('#isStatusEdited', () => {
   expect(new FacebookEvent(reactionAdd).isStatusEdited).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isStatusEdited).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isStatusEdited).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isStatusEdited).toEqual(false);
   expect(new FacebookEvent(sentByPage).isStatusEdited).toEqual(false);
 });
 
@@ -287,6 +306,7 @@ it('#status', () => {
   expect(new FacebookEvent(reactionAdd).status).toEqual(null);
   expect(new FacebookEvent(reactionEdit).status).toEqual(null);
   expect(new FacebookEvent(reactionRemove).status).toEqual(null);
+  expect(new FacebookEvent(reactionOnPost).status).toEqual(null);
   expect(new FacebookEvent(sentByPage).status).toEqual(null);
 });
 
@@ -301,6 +321,7 @@ it('#isPost', () => {
   expect(new FacebookEvent(reactionAdd).isPost).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isPost).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isPost).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isPost).toEqual(false);
   expect(new FacebookEvent(sentByPage).isPost).toEqual(false);
 });
 
@@ -315,6 +336,7 @@ it('#isPostRemove', () => {
   expect(new FacebookEvent(reactionAdd).isPostRemove).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isPostRemove).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isPostRemove).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isPostRemove).toEqual(false);
   expect(new FacebookEvent(sentByPage).isPostRemove).toEqual(false);
 });
 
@@ -338,6 +360,7 @@ it('#post', () => {
   expect(new FacebookEvent(reactionAdd).post).toEqual(null);
   expect(new FacebookEvent(reactionEdit).post).toEqual(null);
   expect(new FacebookEvent(reactionRemove).post).toEqual(null);
+  expect(new FacebookEvent(reactionOnPost).post).toEqual(null);
   expect(new FacebookEvent(sentByPage).post).toEqual(null);
 });
 
@@ -352,6 +375,7 @@ it('#isComment', () => {
   expect(new FacebookEvent(reactionAdd).isComment).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isComment).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isComment).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isComment).toEqual(false);
   expect(new FacebookEvent(sentByPage).isComment).toEqual(true);
 });
 
@@ -366,6 +390,7 @@ it('#isCommentAdd', () => {
   expect(new FacebookEvent(reactionAdd).isCommentAdd).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isCommentAdd).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isCommentAdd).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isCommentAdd).toEqual(false);
   expect(new FacebookEvent(sentByPage).isCommentAdd).toEqual(true);
 });
 
@@ -380,6 +405,7 @@ it('#isCommentEdited', () => {
   expect(new FacebookEvent(reactionAdd).isCommentEdited).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isCommentEdited).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isCommentEdited).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isCommentEdited).toEqual(false);
   expect(new FacebookEvent(sentByPage).isCommentEdited).toEqual(false);
 });
 
@@ -394,6 +420,7 @@ it('#isCommentRemove', () => {
   expect(new FacebookEvent(reactionAdd).isCommentRemove).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isCommentRemove).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isCommentRemove).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isCommentRemove).toEqual(false);
   expect(new FacebookEvent(sentByPage).isCommentRemove).toEqual(false);
 });
 
@@ -408,6 +435,7 @@ it('#isFirstLayerComment', () => {
   expect(new FacebookEvent(reactionAdd).isFirstLayerComment).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isFirstLayerComment).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isFirstLayerComment).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isFirstLayerComment).toEqual(false);
   expect(new FacebookEvent(sentByPage).isFirstLayerComment).toEqual(false);
 });
 
@@ -477,6 +505,7 @@ it('#comment', () => {
   expect(new FacebookEvent(reactionAdd).comment).toEqual(null);
   expect(new FacebookEvent(reactionEdit).comment).toEqual(null);
   expect(new FacebookEvent(reactionRemove).comment).toEqual(null);
+  expect(new FacebookEvent(reactionOnPost).comment).toEqual(null);
   expect(new FacebookEvent(sentByPage).comment).toEqual({
     from: {
       id: '137542570280111',
@@ -503,6 +532,7 @@ it('#isReaction', () => {
   expect(new FacebookEvent(reactionAdd).isReaction).toEqual(true);
   expect(new FacebookEvent(reactionEdit).isReaction).toEqual(true);
   expect(new FacebookEvent(reactionRemove).isReaction).toEqual(true);
+  expect(new FacebookEvent(reactionOnPost).isReaction).toEqual(true);
   expect(new FacebookEvent(sentByPage).isReaction).toEqual(false);
 });
 
@@ -517,6 +547,7 @@ it('#isReactionAdd', () => {
   expect(new FacebookEvent(reactionAdd).isReactionAdd).toEqual(true);
   expect(new FacebookEvent(reactionEdit).isReactionAdd).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isReactionAdd).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isReactionAdd).toEqual(true);
   expect(new FacebookEvent(sentByPage).isReactionAdd).toEqual(false);
 });
 
@@ -531,6 +562,7 @@ it('#isReactionEdit', () => {
   expect(new FacebookEvent(reactionAdd).isReactionEdit).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isReactionEdit).toEqual(true);
   expect(new FacebookEvent(reactionRemove).isReactionEdit).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isReactionEdit).toEqual(false);
   expect(new FacebookEvent(sentByPage).isReactionEdit).toEqual(false);
 });
 
@@ -545,7 +577,23 @@ it('#isReactionRemove', () => {
   expect(new FacebookEvent(reactionAdd).isReactionRemove).toEqual(false);
   expect(new FacebookEvent(reactionEdit).isReactionRemove).toEqual(false);
   expect(new FacebookEvent(reactionRemove).isReactionRemove).toEqual(true);
+  expect(new FacebookEvent(reactionOnPost).isReactionRemove).toEqual(false);
   expect(new FacebookEvent(sentByPage).isReactionRemove).toEqual(false);
+});
+
+it('#isReactionOnPost', () => {
+  expect(new FacebookEvent(statusAdd).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(statusEdited).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(postRemove).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(commentAdd).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(videoCommentAdd).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(commentEdited).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(commentRemove).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(reactionAdd).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(reactionEdit).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(reactionRemove).isReactionOnPost).toEqual(false);
+  expect(new FacebookEvent(reactionOnPost).isReactionOnPost).toEqual(true);
+  expect(new FacebookEvent(sentByPage).isReactionOnPost).toEqual(false);
 });
 
 it('#reaction', () => {
@@ -592,6 +640,17 @@ it('#reaction', () => {
     item: 'reaction',
     createdTime: 1511948666,
   });
+  expect(new FacebookEvent(reactionOnPost).reaction).toEqual({
+    reactionType: 'like',
+    from: {
+      id: '139560936744123',
+    },
+    parentId: '137542570280222_139560936744456',
+    postId: '137542570280222_139560936744456',
+    verb: 'add',
+    item: 'reaction',
+    createdTime: 1568176139,
+  });
   expect(new FacebookEvent(sentByPage).reaction).toEqual(null);
 });
 
@@ -626,6 +685,9 @@ it('#pageId', () => {
   expect(new FacebookEvent(reactionRemove, { pageId }).pageId).toEqual(
     '137542570280111'
   );
+  expect(new FacebookEvent(reactionOnPost, { pageId }).pageId).toEqual(
+    '137542570280111'
+  );
   expect(new FacebookEvent(sentByPage, { pageId }).pageId).toEqual(
     '137542570280111'
   );
@@ -656,6 +718,9 @@ it('#isSentByPage', () => {
   expect(new FacebookEvent(reactionRemove, { pageId }).isSentByPage).toEqual(
     false
   );
+  expect(new FacebookEvent(reactionOnPost, { pageId }).isSentByPage).toEqual(
+    false
+  );
   expect(new FacebookEvent(sentByPage, { pageId }).isSentByPage).toEqual(true);
 });
 
@@ -676,6 +741,9 @@ it('#isPageLike', () => {
   expect(new FacebookEvent(reactionAdd, { pageId }).isPageLike).toEqual(false);
   expect(new FacebookEvent(reactionEdit, { pageId }).isPageLike).toEqual(false);
   expect(new FacebookEvent(reactionRemove, { pageId }).isPageLike).toEqual(
+    false
+  );
+  expect(new FacebookEvent(reactionOnPost, { pageId }).isPageLike).toEqual(
     false
   );
   expect(new FacebookEvent(sentByPage, { pageId }).isPageLike).toEqual(false);
