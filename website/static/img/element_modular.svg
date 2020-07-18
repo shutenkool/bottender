@@ -1,11 +1,1 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
-<rect width="64" height="64" fill="#C4C4C4"/>
-</mask>
-<g mask="url(#mask0)">
-<rect x="10" y="9" width="20" height="16" rx="8" fill="#008DFC"/>
-<rect x="10" y="28" width="20" height="26" rx="10" fill="#09043C"/>
-<rect x="32" y="9" width="20" height="26" rx="10" fill="#A2D3FF"/>
-<rect x="32" y="38" width="20" height="16" rx="8" fill="#008DFC"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 64 64"><mask id="mask0" width="64" height="64" x="0" y="0" mask-type="alpha" maskUnits="userSpaceOnUse"><rect width="64" height="64" fill="#C4C4C4"/></mask><g mask="url(#mask0)"><rect width="20" height="16" x="10" y="9" fill="#008DFC" rx="8"/><rect width="20" height="26" x="10" y="28" fill="#09043C" rx="10"/><rect width="20" height="26" x="32" y="9" fill="#A2D3FF" rx="10"/><rect width="20" height="16" x="32" y="38" fill="#008DFC" rx="8"/></g></svg>
